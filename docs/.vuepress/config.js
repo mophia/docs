@@ -71,7 +71,7 @@ module.exports = {
           title: 'Go',
           collapsable: false,
           sidebarDepth: 1,
-          children: ['/go/conv'],
+          children: ['/go/conv', '/go/time'],
         },
       ],
       '/java-about/java-log/': [
