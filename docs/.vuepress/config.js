@@ -2,7 +2,6 @@ module.exports = {
   title: 'docs', // 设置网站标题
   description: '技术博客文档',
   base: '/', // 设置站点根路径
-  // dest: './clxm', // 设置输出目录
   head: [],
   plugins: [],
   themeConfig: {
@@ -10,6 +9,7 @@ module.exports = {
     nav: [
       { text: '首页', link: '/' },
       { text: 'Go', link: '/go/conv' },
+      { text: 'Three.js', link: '/threejs/start' },
       {
         text: 'java相关',
         items: [
@@ -71,7 +71,15 @@ module.exports = {
           title: 'Go',
           collapsable: true,
           sidebarDepth: 1,
-          children: ['conv', 'time', 'struct', 'concurrency'],
+          children: ['conv', 'time', 'struct', 'concurrency', 'math'],
+        },
+      ],
+      '/threejs/': [
+        {
+          title: 'Three.js',
+          collapsable: true,
+          sidebarDepth: 1,
+          children: ['start'],
         },
       ],
       '/java-about/java-log/': [

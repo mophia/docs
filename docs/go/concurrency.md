@@ -5,7 +5,7 @@ author: mophia
 
 # 并发 Go concurrency
 
-### 并发和并行的区别
+## 并发和并行的区别
 
 并发是指同一个时间段中执行多个任务，而并行是指有一个时刻执行多个任务。
 
@@ -48,13 +48,13 @@ Go 的并发模型是CSP，通过通信共享内存.
 
 Goroutine 是 Go 程序并发的执行体，channel 是它们之间的连接。
 
-Channel 是让一个 goroutine 发送特定值到另一个 goroutine 的通信机制。
-
-通道有发送（send）、接收（receive）和关闭（close）三种操作。
-
-发送和接收都使用 <- 符号。
+Channel 是让一个 goroutine 发送特定值到另一个 goroutine 的通信机制，有发送（send）、接收（receive）和关闭（close）三种操作。
 
 现在我们先使用以下语句定义一个通道：
+
+Channel 中只能存放指定的数据类型。数据放满之后不能再放入，取出数据后可以再放入。
+
+没有使用协程的情况下，如果Channel数据用完了，再取会报 dead lock.
 
 ```go
 ch := make(chan int)
@@ -85,30 +85,38 @@ x := <- ch // 从 ch 中接收值并赋值给变量x
 close(ch)
 ```
 
-### Channel 实例
+## Channel 实例
 
 ```go
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"sync"
+)
 
 var ch chan int // 需要指定通道中元素的类型
+var wg sync.WaitGroup
 
 func main() {
 	// channel 初始化
 	// slice map channel 都使用 make 函数初始化才能使用
 	ch = make(chan int) // 不带缓冲区的通道初始化
-	// ch = make(chan int, 16) // 带缓冲区的通道初始化
+	//ch = make(chan int, 16) // 带缓冲区的通道初始化
+	wg.Add(1)
 	go func() {
+		defer wg.Done()
 		x := <-ch
 		fmt.Println("Channel received", x)
 	}()
 	ch <- 10
 	fmt.Println("10 sent to channel successfully")
+	wg.Wait()
+	fmt.Println("goroutine finished.")
 }
 ```
 
-### sync.WaitGroup
+## sync.WaitGroup
 
 WaitGroup 对象内部有一个计数器，最初从0开始，它有三个方法：Add(), Done(), Wait() 用来控制计数器的数量。
 Add(n) 把计数器设置为n ，Done() 每次把计数器-1 ，wait() 会阻塞代码的运行，直到计数器地值减为0。
@@ -121,4 +129,83 @@ wg.Add(1) // 添加计数器 +n
 wg.Done() // 计数器 -1
 
 wg.Wait() // 等待，直到计数器 =0
+```
+
+## 单向通道
+
+```go
+// 只能写入数据的通道
+var 通道实例 chan<- 元素类型
+
+// 只能读取数据的通道
+var 通道实例 <-chan 元素类型
+```
+
+## channel 异常情况的总结
+
+| Syntax      | Description |
+| ----------- | ----------- |
+| Header      | Title       |
+| Paragraph   | Text        |
+
+| channel  | nil   | 非空且未满通道 | 空通道 | 满通道 |
+| :------- | :---: | :----------: | :---: | :---: |
+| 接收     | 阻塞   | 接收值        | 阻塞   | 接收值 |
+| 发送     | 阻塞   | 发送值        | 发送值 | 阻塞   |
+| 关闭    | panic | 关闭成功，读完数据后返回零值 | 关闭成功返回零值 | 关闭成功，读完数据后返回零值 |
+
+关闭已经关闭的 channel 也会引发 panic .
+
+## 并发循环 Concurrency Loop
+
+1.启动一个goroutine，生成100个数发送给ch1
+2.启动另一个goroutine，从ch1中取值，计算平方放到ch2中
+3.在 main 中，从 ch2 中取值打印出来
+
+
+```go
+package main
+
+import (
+	"fmt"
+	"math"
+	"sync"
+)
+
+var wg sync.WaitGroup
+var count int
+
+func createNum(ch1 chan int) {
+	defer wg.Done()
+	for i := 0; i < 100; i++ {
+		ch1 <- int(math.Pow(float64(i), 2))
+	}
+	close(ch1)
+}
+
+func transferNum(ch1 chan int, ch2 chan int) {
+	defer wg.Done()
+	for x := range ch1 {
+		ch2 <- x
+	}
+	close(ch2)
+}
+
+func main() {
+	ch1 := make(chan int, 100)
+	ch2 := make(chan int, 100)
+
+	wg.Add(2)
+
+	go createNum(ch1)
+	go transferNum(ch1, ch2)
+
+	wg.Wait()
+	fmt.Println("finished.")
+
+	for re := range ch2 {
+		fmt.Println(re)
+	}
+
+}
 ```
