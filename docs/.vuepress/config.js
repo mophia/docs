@@ -10,27 +10,27 @@ module.exports = {
       { text: '首页', link: '/' },
       { text: 'Go', link: '/go/conv' },
       { text: 'Three.js', link: '/threejs/start' },
-      {
-        text: 'java相关',
-        items: [
-          { text: 'java日志', link: '/java-about/java-log/01log' },
-          { text: 'java杂七杂八', link: '/java-about/04java-about/01jwt' },
-          { text: 'java', link: '/java-about/03java/01synchronized' },
-          { text: 'shiro', link: '/java-about/06app/01shiro/01' },
-          { text: 'security', link: '/java-about/06app/02security/01' },
-          { text: 'javaee', link: '/java-about/06app/03javaee/01' },
-          { text: 'springboot', link: '/java-about/06app/04springboot/01' },
-        ],
-      },
-      {
-        text: 'springCloud相关',
-        items: [
-          {
-            text: 'springCloud相关',
-            link: '/java-about/05spring-cloud/01gateway',
-          },
-        ],
-      },
+      // {
+      //   text: 'java相关',
+      //   items: [
+      //     { text: 'java日志', link: '/java-about/java-log/01log' },
+      //     { text: 'java杂七杂八', link: '/java-about/04java-about/01jwt' },
+      //     { text: 'java', link: '/java-about/03java/01synchronized' },
+      //     { text: 'shiro', link: '/java-about/06app/01shiro/01' },
+      //     { text: 'security', link: '/java-about/06app/02security/01' },
+      //     { text: 'javaee', link: '/java-about/06app/03javaee/01' },
+      //     { text: 'springboot', link: '/java-about/06app/04springboot/01' },
+      //   ],
+      // },
+      // {
+      //   text: 'springCloud相关',
+      //   items: [
+      //     {
+      //       text: 'springCloud相关',
+      //       link: '/java-about/05spring-cloud/01gateway',
+      //     },
+      //   ],
+      // },
       {
         text: 'web',
         items: [
@@ -41,7 +41,7 @@ module.exports = {
         ],
       },
       {
-        text: 'java 基础',
+        text: 'java',
         items: [
           { text: 'java 基础', link: '/java-about/07javabase/01flux/01flux' },
           { text: 'java 基础1', link: '/java-about/07javabase/02base/01' },
@@ -59,6 +59,17 @@ module.exports = {
           {
             text: '08spring',
             link: '/java-about/07javabase/08spring/01spring',
+          },
+          { text: 'java日志', link: '/java-about/java-log/01log' },
+          { text: 'java杂七杂八', link: '/java-about/04java-about/01jwt' },
+          { text: 'java', link: '/java-about/03java/01synchronized' },
+          { text: 'shiro', link: '/java-about/06app/01shiro/01' },
+          { text: 'security', link: '/java-about/06app/02security/01' },
+          { text: 'javaee', link: '/java-about/06app/03javaee/01' },
+          { text: 'springboot', link: '/java-about/06app/04springboot/01' },
+          {
+            text: 'springCloud相关',
+            link: '/java-about/05spring-cloud/01gateway',
           },
         ],
       },
