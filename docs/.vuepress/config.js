@@ -9,6 +9,7 @@ module.exports = {
     nav: [
       { text: '首页', link: '/' },
       { text: 'Go', link: '/go/conv' },
+      { text: 'Python', link: '/python/list' },
       { text: 'Three.js', link: '/threejs/start' },
       // {
       //   text: 'java相关',
@@ -83,6 +84,14 @@ module.exports = {
           collapsable: true,
           sidebarDepth: 1,
           children: ['conv', 'time', 'struct', 'concurrency', 'math'],
+        },
+      ],
+      '/python/': [
+        {
+          title: 'Python',
+          collapsable: true,
+          sidebarDepth: 1,
+          children: ['list'],
         },
       ],
       '/threejs/': [
