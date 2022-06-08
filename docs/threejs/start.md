@@ -1,5 +1,6 @@
 ---
 title: Three.js 从这里开始！
+author: mophia
 ---
 
 # Three.js 从这里开始！
