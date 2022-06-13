@@ -11,7 +11,7 @@ author: mophia
 
 ## 2. 定义
 
-**在 {} 内用逗号分隔开多个 key: value 其中 value 可以是任意类型 但是 key 必须是 不可变类型且不能重复**
+**在 {} 内用逗号分隔开多个 key: value 其中 value 可以是任意类型，但是 key 必须是 不可变类型且不能重复**
 
 ```py
 d = {'k1': 1, (1, 2, 3): 2}  # d = dict(...)
@@ -42,12 +42,20 @@ print(d, type(d))  # {'x': 1, 'y': 2, 'z': 3} <class 'dict'>
 
 ## 3. 类型转换
 
-# 嵌套数组/元组创建字典
+### 3.1 嵌套数组/元组创建字典：`dict()`
 
-# dict()
+```py
+info = [
+    ['name', 'mophia'],
+    ('age', 23)
+]
+d = dict(info)
+print(d)  # {'name': 'mophia', 'age': 23}
+```
 
-# 1. 原理1
+- 原理1
 
+```py
 info = [
     ['name', 'mophia'],
     ('age', 23)
@@ -56,9 +64,11 @@ d = {}
 for item in info:
     d[item[0]] = item[1]
 print(d)  # {'name': 'mophia', 'age': 23}
+```
 
-# 2. 原理2
+- 原理2
 
+```py
 info = [
     ['name', 'mophia'],
     ('age', 23)
@@ -67,20 +77,18 @@ d = {}
 for k, v in info:
     d[k] = v
 print(d)  # {'name': 'mophia', 'age': 23}
+```
 
-# 3
+### 3.2 由 key 快速初始化字典
 
-info = [
-    ['name', 'mophia'],
-    ('age', 23)
-]
-d = dict(info)
-print(d)  # {'name': 'mophia', 'age': 23}
+```py
+d = {}.fromkeys(keys, None)
+print(d)  # {'name': None, 'age': None}
+```
 
-# 由 key 快速初始化字典
+- 原理
 
-# 1
-
+```py
 keys = ['name', 'age']
 value = None
 
@@ -88,18 +96,16 @@ d = {}
 for k in keys:
     d[k] = None
 print(d)  # {'name': None, 'age': None}
+```
 
-# 2
+## 4. 内置方法
 
-d = {}.fromkeys(keys, None)
-print(d)  # {'name': None, 'age': None}
+> 优先掌握的操作
 
-# 4. 内置方法
+### 4.1 按 key 存取值：可存可取
 
-# 优先掌握的操作
-
-# 1. 按 key 存取值：可存可取
-
+```py
+# 取值操作
 d = {'k1': 1}
 
 # 赋值操作：key存在，则修改值；key 不存在，则创建新值
@@ -107,47 +113,61 @@ d = {'k1': 1}
 d['k1'] = 2
 d['k2'] = 3
 print(d)  # {'k1': 2, 'k2': 3}
+```
 
-# 2. len() 统计元素个数
+### 4.2 len() 统计元素个数
 
+```py
 d = {'k1': 1, 'k1': 2, 'k1':3}
 print(len(d))  # 1
+```
 
-# 3. 成员运算 in / not in : 根据 key
+### 4.3 成员运算 in / not in : 根据 key
 
+```py
 d = {'k1': 1, 'k2': 2}
 print('k1' in d)  # True
+```
 
-# 4. 删除
+### 4.4 删除
 
-# 4.1 通用删除
+#### 4.4.1 通用删除
 
+```py
 d = {'k1': 1, 'k2': 2}
 del d['k1']
 print(d)  # {'k2': 2}
+```
 
-# 4.2 pop 删除：根据 key 删除元素，返回删除 key 对应的 value 值
+#### 4.4.2 pop 删除：根据 key 删除元素，返回删除 key 对应的 value 值
 
-# d.pop(key)
+`d.pop(key)`
 
+```py
 d = {'k1': 1, 'k2': 2}
 res = d.pop('k1')
 print(d, res)  # {'k2': 2} 1
+```
 
-# 4.3 popitem 删除：随机删除，返回一个元组(删除的key, 删除的value)
+### 4.4.3 popitem 删除：随机删除，返回一个元组(删除的key, 删除的value)
 
+```py
 d = {'k1': 1, 'k2': 2}
 res = d.popitem()
 print(d, res)  # {'k1': 1} ('k2', 2)
+```
 
-# 5. 键 keys() 值 values() 键值对 items()
+### 4.4.5 键 keys() 值 values() 键值对 items()
 
+```py
 d = {'k1': 1, 'k2': 2}
 print(d.keys(), d.values(), d.items())  # dict_keys(['k1', 'k2']) dict_values([1, 2]) dict_items([('k1', 1), ('k2', 2)])
 print(dict(d.keys()))  # {'k': '2'}
+```
 
-# 6. for 循环
+### 4.4.6 for 循环
 
+```py
 for k in d.keys():
     print(k)
 
@@ -162,11 +182,11 @@ for k, v in d.items():
 print(d.keys(), list(d.keys()))
 print(d.values(), list(d.values()))
 print(d.items(), list(d.items()))
+```
 
-# 需要掌握
+> 需要掌握：其他内置方法
 
-# 其他内置方法
-
+```py
 d = {'k1': 1, 'k2': 2}
 
 # 用新字典更新原字典
@@ -176,6 +196,7 @@ d = {'k1': 1, 'k2': 2}
 d.update({'k2': 22, 'k3': 33})
 
 # print(d['k10']) # key 不存在会报错
+```
 
 ### dict.get() 🌟（常用）
 
