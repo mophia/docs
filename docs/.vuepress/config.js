@@ -11,27 +11,6 @@ module.exports = {
       { text: 'Go', link: '/go/conv' },
       { text: 'Python', link: '/python/list' },
       { text: 'Three.js', link: '/threejs/start' },
-      // {
-      //   text: 'java相关',
-      //   items: [
-      //     { text: 'java日志', link: '/java-about/java-log/01log' },
-      //     { text: 'java杂七杂八', link: '/java-about/04java-about/01jwt' },
-      //     { text: 'java', link: '/java-about/03java/01synchronized' },
-      //     { text: 'shiro', link: '/java-about/06app/01shiro/01' },
-      //     { text: 'security', link: '/java-about/06app/02security/01' },
-      //     { text: 'javaee', link: '/java-about/06app/03javaee/01' },
-      //     { text: 'springboot', link: '/java-about/06app/04springboot/01' },
-      //   ],
-      // },
-      // {
-      //   text: 'springCloud相关',
-      //   items: [
-      //     {
-      //       text: 'springCloud相关',
-      //       link: '/java-about/05spring-cloud/01gateway',
-      //     },
-      //   ],
-      // },
       {
         text: 'web',
         items: [
@@ -92,6 +71,12 @@ module.exports = {
           collapsable: true,
           sidebarDepth: 1,
           children: ['list', 'tuple', 'dict', 'file_operation'],
+        },
+        {
+          title: 'Pandas',
+          collapsable: true,
+          sidebarDepth: 1,
+          children: ['pandas/merge&concat'],
         },
       ],
       '/threejs/': [
