@@ -83,7 +83,14 @@ module.exports = {
           title: 'Go',
           collapsable: true,
           sidebarDepth: 1,
-          children: ['conv', 'time', 'struct', 'concurrency', 'math'],
+          children: [
+            'conv',
+            'time',
+            'struct',
+            'concurrency',
+            'math',
+            'introduction',
+          ],
         },
       ],
       '/python/': [
@@ -91,7 +98,7 @@ module.exports = {
           title: 'Python',
           collapsable: true,
           sidebarDepth: 1,
-          children: ['list', 'tuple', 'dict', 'file_operation'],
+          children: ['list', 'tuple', 'dict', 'func', 'file_operation'],
         },
       ],
       '/threejs/': [
