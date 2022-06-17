@@ -274,5 +274,18 @@ def wrapper(a, b, c):
 
 
 ```
-499
 
+例子：
+
+```py
+# 为 wrapper 参数是给 index 用的
+
+def index(x, y, z):
+    print("index ==> ", x, y, z)
+
+def wrapper(a, b, c):
+    index(a, b, c)
+
+wrapper(1, 2, 3)  # index ==>  1 2 3  
+
+```

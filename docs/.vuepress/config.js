@@ -10,9 +10,8 @@ module.exports = {
       { text: '首页', link: '/' },
       { text: 'Go', link: '/go/conv' },
       { text: 'Python', link: '/python/list' },
-      { text: 'Three.js', link: '/threejs/start' },
       {
-        text: 'web',
+        text: '前端 Web',
         items: [
           { text: 'web基础', link: '/web/01web/01web01' },
           { text: 'js基础', link: '/web/02js/01js' },
@@ -20,6 +19,7 @@ module.exports = {
           { text: 'vlog', link: '/web/04vlog/01' },
         ],
       },
+      { text: 'Three.js', link: '/threejs/start' },
       {
         text: 'java',
         items: [
@@ -60,7 +60,7 @@ module.exports = {
       '/go/': [
         {
           title: 'Go',
-          collapsable: true,
+          collapsable: false,
           sidebarDepth: 1,
           children: [
             'conv',
@@ -83,7 +83,7 @@ module.exports = {
           title: 'Pandas',
           collapsable: true,
           sidebarDepth: 1,
-          children: ['pandas/merge&concat'],
+          children: ['pandas/merge&concat', 'pandas/calculate_by_group'],
         },
       ],
       '/threejs/': [
