@@ -77,7 +77,14 @@ module.exports = {
           title: 'Python',
           collapsable: true,
           sidebarDepth: 1,
-          children: ['list', 'tuple', 'dict', 'func', 'file_operation'],
+          children: [
+            'list',
+            'tuple',
+            'dict',
+            'func',
+            'file_operation',
+            'import',
+          ],
         },
         {
           title: 'Pandas',
