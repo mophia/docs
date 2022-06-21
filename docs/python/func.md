@@ -1,11 +1,9 @@
 ---
-title: 函数 Func
+title: 函数 Function
 author: mophia
 ---
 
-# 函数 Func
-
----
+# 函数 Function
 
 # 函数参数的使用
 
