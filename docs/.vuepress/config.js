@@ -84,6 +84,7 @@ module.exports = {
             'func',
             'file_operation',
             'import',
+            'decorator',
           ],
         },
         {
