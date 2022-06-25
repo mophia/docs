@@ -22,6 +22,7 @@ author: mophia
 
 ```py
 def outer(func):
+    @wraps(func)  # 将原函数的属性赋值给 wrapper，可加可不加
     def wrapper(*args, **kwargs):
         # 添加新功能
         res = func(*args, **kwargs)  # 调用原函数
