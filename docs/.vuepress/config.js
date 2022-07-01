@@ -85,6 +85,7 @@ module.exports = {
             'file_operation',
             'import',
             'decorator',
+            'three_expression _generating_expression',
           ],
         },
         {
