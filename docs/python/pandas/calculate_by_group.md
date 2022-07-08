@@ -49,6 +49,9 @@ df
 
 ```py
 group = df.groupby("company")
+
+group = df.groupby("company", as_index=False) # 不把列索引合并到行索引中，推荐
+
 list(group)
 
 """
@@ -195,3 +198,20 @@ oldest_staff = data.groupby('company',as_index=False).apply(get_oldest_staff)
 oldest_staff
 ```
 
+
+Python中groupby后的索引处理
+
+想在groupby后保持groupby列的为正常列有两种方式：
+1、利用groupby中的as_index参数
+
+data.groupby('city',as_index=False)['是否中标'].count()
+1
+2、groupby结果利用reset_index将行索引转换为列
+
+gr=data.groupby('city')['是否中标'].count()
+gr.reset_index(drop=False)
+1
+2
+drop=False,将索引转化为普通列，否则列会消失
+
+原文链接：https://blog.csdn.net/onroadliuyaqiong/article/details/105250241
