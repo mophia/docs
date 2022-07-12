@@ -82,6 +82,7 @@ module.exports = {
             'tuple',
             'dict',
             'func',
+            'regex',
             'file_operation',
             'import',
             'decorator',
