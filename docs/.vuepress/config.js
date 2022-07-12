@@ -92,7 +92,11 @@ module.exports = {
           title: 'Pandas',
           collapsable: true,
           sidebarDepth: 1,
-          children: ['pandas/merge&concat', 'pandas/calculate_by_group'],
+          children: [
+            'pandas/merge&concat',
+            'pandas/calculate_by_group',
+            'pandas/duplicate',
+          ],
         },
       ],
       '/threejs/': [
