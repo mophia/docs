@@ -11,7 +11,7 @@ module.exports = {
       { text: 'Go', link: '/go/conv' },
       { text: 'Python', link: '/python/list' },
       {
-        text: '前端 Web',
+        text: '前端',
         items: [
           { text: 'web基础', link: '/web/01web/01web01' },
           { text: 'js基础', link: '/web/02js/01js' },
@@ -53,6 +53,7 @@ module.exports = {
           },
         ],
       },
+      { text: 'MySQL', link: '/mysql/start' },
       { text: '个人主页', link: 'https://mophia.com' },
       { text: 'Github', link: 'https://github.com/mophia' },
     ],
@@ -104,6 +105,14 @@ module.exports = {
           ],
         },
       ],
+      '/mysql/': [
+        {
+          title: 'MySQL',
+          collapsable: true,
+          sidebarDepth: 2,
+          children: ['start', '14MySQL事务日志'],
+        },
+      ],
       '/threejs/': [
         {
           title: 'Three.js',
@@ -125,7 +134,6 @@ module.exports = {
           ],
         },
       ],
-
       '/java-about/05spring-cloud/': [
         {
           title: 'springCloud',
@@ -408,6 +416,7 @@ module.exports = {
             '/java-about/07javabase/06mysql/11视图',
             '/java-about/07javabase/06mysql/12存储过程与函数',
             '/java-about/07javabase/06mysql/13变量流程控制和游标',
+            '/java-about/07javabase/06mysql/14MySQL事务日志',
             '/java-about/07javabase/06mysql/14触发器',
             '/java-about/07javabase/06mysql/15mysql8新特性',
             '/java-about/07javabase/06mysql/16linux下mysql',
@@ -423,7 +432,6 @@ module.exports = {
             '/java-about/07javabase/06mysql/26数据库的设计规范',
             '/java-about/07javabase/06mysql/27数据库其它调优策略',
             '/java-about/07javabase/06mysql/28事务基础知识',
-            '/java-about/07javabase/06mysql/29MySQL事务日志',
             '/java-about/07javabase/06mysql/30锁',
           ],
         },
