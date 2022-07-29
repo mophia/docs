@@ -53,7 +53,13 @@ module.exports = {
           },
         ],
       },
-      { text: 'MySQL', link: '/mysql/start' },
+      {
+        text: 'MySQL',
+        items: [
+          { text: '基础篇', link: '/mysql/basic/start' },
+          { text: '高级特性篇', link: '/mysql/advanced/start' },
+        ],
+      },
       { text: '个人主页', link: 'https://mophia.com' },
       { text: 'Github', link: 'https://github.com/mophia' },
     ],
@@ -107,10 +113,15 @@ module.exports = {
       ],
       '/mysql/': [
         {
-          title: 'MySQL',
+          title: '高级特性篇',
           collapsable: true,
           sidebarDepth: 2,
-          children: ['start', '14MySQL事务日志'],
+          children: [
+            'advanced/start',
+            'advanced/5存储引擎',
+            'advanced/13事务基础知识',
+            'advanced/14MySQL事务日志',
+          ],
         },
       ],
       '/threejs/': [
