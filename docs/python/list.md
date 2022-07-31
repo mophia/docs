@@ -104,6 +104,8 @@ print(l)  # [0, 1, 2, 3, 'a', 'b', 'c']
 
 ### 4. 删除列表
 
+> http://c.biancheng.net/view/2209.html
+
 #### 方法一：通用的删除方法 del list[index]
 
 只是单纯删除，没有返回值
@@ -131,7 +133,15 @@ print(l, pop_item)  # [1, 3] 2
 ```py
 l = [1, [1, 2], 3]
 l.remove([1, 2])  # 没有返回值
-print(l)
+print(l)  # [1, 3]
+```
+
+#### 方法四：clear() 清空列表
+
+```py
+l = [1, 2, 3]
+l.clear()
+print(l)  # []
 ```
 
 ### 5. 切片
@@ -207,3 +217,40 @@ print('a' < 'b')  # True
 l.clear()
 print(l)  # []
 ```
+
+### list 与 string 的转换
+
+- list转string
+
+```py
+''.join(list)
+```
+
+其中，引号中是字符之间的分割符，如“,”，“;”，“\t”等等
+
+如：
+
+```py
+list = [1, 2, 3, 4, 5]
+''.join(list) # => 12345
+','.join(list) # => 1,2,3,4,5
+```
+
+- string 转 list
+
+```py
+list(str)
+```
+
+```py
+list1 = list('abcde')
+print(list1)  # => ['a', 'b', 'c', 'd', 'e']
+
+a = '123  4'
+c = a.split()
+print(c)  #['123', '4']
+d = a.split(' ')
+print(d)  #['123', '', '4']
+```
+
+> 参考：https://blog.csdn.net/bufengzj/article/details/90231555
